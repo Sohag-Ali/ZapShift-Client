@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui"{
+   themes: light --default;
+};
+
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+    /* 🌿 Brand Colors */
+  --color-primary: #CAEB66;        /* Light green */
+  --color-primary-content: #03373D;
+
+  --color-secondary: #03373D;      /* Dark teal */
+  --color-secondary-content: #ffffff;
+
+  /* 🎨 Base UI */
+  --color-base-100: #ffffff;       /* Main background */
+  --color-base-200: #f5f7f6;       /* Section background */
+  --color-base-300: #e5e7eb;       /* Border / divider */
+
+  /* 🧩 Text Colors */
+  --color-neutral: #1f2937;        /* Main text */
+  --color-neutral-content: #ffffff;
+
+  /* ✨ Accent */
+  --color-accent: #22c55e;         /* subtle green */
+  --color-accent-content: #ffffff;
+
+  /* 🚨 Status Colors */
+  --color-success: #16a34a;
+  --color-warning: #facc15;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* 🔘 Radius & UI Feel */
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+
+  /* 🎯 Depth */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+
+body{
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
