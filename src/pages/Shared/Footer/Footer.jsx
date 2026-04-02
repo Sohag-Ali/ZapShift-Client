@@ -5,12 +5,12 @@ import Logo from "../../../components/Logo/Logo";
 
 const Footer = () => {
   return (
-  <footer className=" text-white mt-16">
+  <footer className=" text-white mt-8">
       
-      <div className="px-4 py-12">
+      <div className="px-4 pt-12">
         
         {/* Card Container */}
-        <div className="bg-black rounded-3xl px-6 py-12 text-center shadow-lg">
+        <div className="bg-black rounded-t-3xl px-6 py-12 text-center shadow-lg">
 
           {/* Logo */}
           <div className="flex justify-center mb-4">
