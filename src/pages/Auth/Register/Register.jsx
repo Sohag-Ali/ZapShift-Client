@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocailLogin from "../SocailLogin/SocailLogin";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";
@@ -13,6 +13,9 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const { registerUser, updateUserProfile } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
 
   const handleRegistration = (data) => {
     console.log(data);
@@ -20,6 +23,7 @@ const Register = () => {
     registerUser(data.email, data.password, data.name)
       .then((result) => {
         const user = result.user;
+       
         console.log(user);
         // Upload profile image
         // ...
@@ -36,6 +40,7 @@ const Register = () => {
           updateUserProfile(userProfile)
             .then(() => {
               console.log("User profile updated successfully");
+               navigate(location.state || '/');
             })
             .catch((error) =>
               console.log("Error updating user profile:", error),
@@ -150,7 +155,7 @@ const Register = () => {
         {/* Login */}
         <p className="text-xs text-gray-400 text-center">
           Already have an account?{" "}
-          <Link to="/login" className="text-lime-500 cursor-pointer">
+          <Link state={location.state} to="/login" className="text-lime-500 cursor-pointer">
             Login
           </Link>
         </p>

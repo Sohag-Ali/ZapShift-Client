@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../Hooks/useAuth';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocailLogin from '../SocailLogin/SocailLogin';
 
 
@@ -10,6 +10,9 @@ const Login = () => {
 
     const {register, handleSubmit, formState:{errors}} = useForm();
     const { signInUser } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
 
     const handleLogin = (data) => {
         console.log(data);
@@ -17,6 +20,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(location?.state || '/');
         }   )
         .catch(error => console.log(error))
     };
@@ -70,7 +74,7 @@ const Login = () => {
                 {/* Register */}
                 <p className="text-xs text-gray-400">
                     Don’t have any account?{" "}
-                    <Link to="/register" className="text-lime-500 cursor-pointer">Register</Link>
+                    <Link state={location.state} to="/register" className="text-lime-500 cursor-pointer">Register</Link>
                 </p>
 
                
