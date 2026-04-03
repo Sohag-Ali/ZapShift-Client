@@ -12,7 +12,7 @@ const Logo = () => {
       />
 
       {/* Text */}
-      <h3 className="text-2xl font-bold leading-none text-gray-800 dark:text-white -ms-2.5">
+      <h3 className="text-2xl font-bold leading-none text-gray-800  -ms-2.5">
         ZapShift
       </h3>
     </div>

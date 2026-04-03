@@ -1,0 +1,39 @@
+import React from 'react';
+import useAuth from '../../../Hooks/useAuth';
+
+const SocailLogin = () => {
+
+    const { signinUserWithGoogle } = useAuth();
+
+    const handleGoogleSignIn = () => {
+        signinUserWithGoogle()
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.log(error))
+    };
+
+
+    return (
+        <div  className="space-y-4">
+             {/* Divider */}
+                <div className="text-center text-gray-300 text-sm ">Or</div>
+
+                {/* Google */}
+                <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    className="w-full bg-gray-200 py-2 rounded-md flex items-center justify-center gap-2 text-sm"
+                >
+                    <img
+                        src="https://img.icons8.com/color/16/google-logo.png"
+                        alt=""
+                    />
+                    Login with google
+                </button>
+        </div>
+    );
+};
+
+export default SocailLogin;
