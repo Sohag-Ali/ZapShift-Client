@@ -1,25 +1,42 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import Logo from "../../../components/Logo/Logo";
 import { ArrowUpRight } from "lucide-react";
+import useAuth from "../../../Hooks/useAuth";
 
 const NavBar = () => {
+
+  const { user, signOutUser } = useAuth();
+
+  const handleSignOut = () => {
+    signOutUser()
+    .then(() => { })
+    .catch(error => console.log(error))
+  };
+
   const links = (
     <>
-      <li><NavLink to="/">Services</NavLink></li>
-      <li><NavLink to="/coverage">Coverage</NavLink></li>
-      <li><NavLink to="/about">About Us</NavLink></li>
-      <li><NavLink to="/pricing">Pricing</NavLink></li>
-      <li><NavLink to="/rider">Be a Rider</NavLink></li>
+      <li>
+        <NavLink to="/">Services</NavLink>
+      </li>
+      <li>
+        <NavLink to="/coverage">Coverage</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about">About Us</NavLink>
+      </li>
+      <li>
+        <NavLink to="/pricing">Pricing</NavLink>
+      </li>
+      <li>
+        <NavLink to="/rider">Be a Rider</NavLink>
+      </li>
     </>
   );
   return (
-     <div className="py-4">
-      
+    <div className="py-4">
       <div className="px-4">
-        
         <div className="flex items-center justify-between bg-base-100 rounded-2xl px-6 py-3 shadow-sm">
-
           {/* Logo */}
           <div className="flex items-center">
             <Logo></Logo>
@@ -34,24 +51,25 @@ const NavBar = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            
             {/* Sign In */}
-            <button className="btn btn-outline rounded-xl px-5">
+            {user ? 
+            <button onClick={handleSignOut} className="btn btn-outline rounded-xl px-5">
+              LogOut
+              </button>
+              : <Link to="/login" className="btn btn-outline rounded-xl px-5">
               Sign In
-            </button>
+              </Link>
+            }
 
             {/* Be a Rider */}
-            <button className="btn btn-primary rounded-xl px-5 flex items-center gap-2">
+            <Link to="/rider" className="btn btn-primary rounded-xl px-5 flex items-center gap-2">
               Be a rider
-              <span className="bg-black text-white rounded-full p-1">
-                <ArrowUpRight size={16} />
-              </span>
-            </button>
-
+            </Link>
+            <span className="bg-black text-primary rounded-full p-1">
+              <ArrowUpRight size={20} />
+            </span>
           </div>
-
         </div>
-
       </div>
     </div>
   );
