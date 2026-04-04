@@ -37,6 +37,7 @@ const SocailLogin = () => {
                     />
                     Login with google
                 </button>
+                
         </div>
     );
 };
