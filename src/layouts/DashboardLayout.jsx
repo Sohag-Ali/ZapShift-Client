@@ -1,5 +1,6 @@
 import React from 'react';
 import { CiDeliveryTruck } from 'react-icons/ci';
+import { FaCreditCard } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router';
 
 const DashboardLayout = () => {
@@ -41,6 +42,15 @@ const DashboardLayout = () => {
             {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M21 15a2 2 0 0 1-2 2H7l-5 5v-26a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> */}
             <CiDeliveryTruck />
             <span className="is-drawer-close:hidden">My Parcels</span>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/dashboard/payment-history" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Payment History">
+            {/* My Parcels icon */}
+            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M21 15a2 2 0 0 1-2 2H7l-5 5v-26a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> */}
+           <FaCreditCard />
+            <span className="is-drawer-close:hidden">Payment History</span>
           </NavLink>
         </li>
 
