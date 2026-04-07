@@ -34,6 +34,7 @@ export const router = createBrowserRouter([
             <Rider></Rider>
           </PrivateRoute>
         ),
+        loader: () => fetch("/servecCenter.json").then((res) => res.json()),
       },
       {
         path: "parcel",
