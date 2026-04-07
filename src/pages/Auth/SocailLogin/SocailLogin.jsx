@@ -19,8 +19,8 @@ const SocailLogin = () => {
 
         const userInfo = {
           email: user.email,
-          displayName: user.name,
-          photoURL:user.photoUrl,
+          displayName: user.displayName,
+          photoURL:user.photoURL,
         };
 
         axiosSequre.post('/users',userInfo)

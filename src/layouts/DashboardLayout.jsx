@@ -1,10 +1,12 @@
 import React from 'react';
 import { CiDeliveryTruck } from 'react-icons/ci';
-import { FaCreditCard } from 'react-icons/fa';
+import { FaCreditCard, FaUsers } from 'react-icons/fa';
 import { RiEBike2Fill } from 'react-icons/ri';
 import { Link, NavLink, Outlet } from 'react-router';
+import useRole from '../Hooks/useRole';
 
 const DashboardLayout = () => {
+  const {role} = useRole();
     return (
         <div className="drawer lg:drawer-open max-w-7xl mx-auto">
   <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -39,8 +41,6 @@ const DashboardLayout = () => {
         {/* List item */}
         <li>
           <NavLink to="/dashboard/my-parcels" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Parcels">
-            {/* My Parcels icon */}
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M21 15a2 2 0 0 1-2 2H7l-5 5v-26a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> */}
             <CiDeliveryTruck />
             <span className="is-drawer-close:hidden">My Parcels</span>
           </NavLink>
@@ -48,21 +48,31 @@ const DashboardLayout = () => {
 
         <li>
           <NavLink to="/dashboard/payment-history" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Payment History">
-            {/* My Parcels icon */}
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M21 15a2 2 0 0 1-2 2H7l-5 5v-26a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> */}
            <FaCreditCard />
             <span className="is-drawer-close:hidden">Payment History</span>
           </NavLink>
         </li>
 
+        {
+          role === 'admin' && <>
+          
         <li>
           <NavLink to="/dashboard/approve-riders" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Approve Riders">
-            {/* My Parcels icon */}
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4"><path d="M21 15a2 2 0 0 1-2 2H7l-5 5v-26a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> */}
            <RiEBike2Fill />
             <span className="is-drawer-close:hidden">Approve Riders</span>
           </NavLink>
         </li>
+
+
+        <li>
+          <NavLink to="/dashboard/users-management" className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Users Management">
+           <FaUsers />
+            <span className="is-drawer-close:hidden">Users Management</span>
+          </NavLink>
+        </li>
+        
+          </>
+        }
 
 
         {/* List item */}

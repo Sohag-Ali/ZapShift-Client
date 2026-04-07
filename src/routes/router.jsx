@@ -13,11 +13,13 @@ import Parcel from "../pages/Parcel/Parcel";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../pages/Dashboard/Payment/Payment";
-// import paymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
+
 import PaymentCancel from "../pages/Dashboard/Payment/PaymentCancel";
 import PaymentSuccess from "../pages/Dashboard/Payment/paymentSuccess";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import ApproveRiders from "../pages/Dashboard/ApproveRiders/ApproveRiders";
+import UserManagement from "../pages/Dashboard/UserManagement/UserManagement";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -39,9 +41,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "parcel",
-        element:<PrivateRoute><Parcel></Parcel></PrivateRoute>,
-         loader: () => fetch("/servecCenter.json").then((res) => res.json()),
-        
+        element: (
+          <PrivateRoute>
+            <Parcel></Parcel>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/servecCenter.json").then((res) => res.json()),
       },
       {
         path: "coverage",
@@ -66,7 +71,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: (<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>),
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "my-parcels",
@@ -90,9 +99,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "approve-riders",
-        Component: ApproveRiders,
-      }
-    ]
-    }
-        
+        element: (
+          <AdminRoute>
+            <ApproveRiders></ApproveRiders>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "users-management",
+        element: (
+          <AdminRoute>
+            <UserManagement></UserManagement>
+          </AdminRoute>
+        ),
+      },
+    ],
+  },
 ]);
