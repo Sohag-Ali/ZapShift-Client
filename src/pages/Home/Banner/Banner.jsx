@@ -9,7 +9,14 @@ import { ArrowUpRight } from "lucide-react";
 
 const Banner = () => {
   return (
-    <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
+    <Carousel
+      autoPlay={true}
+      infiniteLoop={true}
+      showThumbs={false}
+      showStatus={false}
+      stopOnHover={true}
+      transitionTime={1000}
+    >
       {/* Slide 1 */}
 
       <div className="bg-gradient-to-r from-white to-primary/20 rounded-3xl px-5 sm:px-8 md:px-16 py-10 md:py-12 flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10 min-h-[550px] md:min-h-[620px]">
@@ -45,7 +52,7 @@ const Banner = () => {
               </span>
 
               <button className="btn btn-outline rounded-full px-5">
-                Be a Rider
+                Become a Rider
               </button>
             </div>
           </div>
@@ -103,7 +110,7 @@ const Banner = () => {
               </span>
 
               <button className="btn btn-outline rounded-full px-5">
-                Be a Rider
+                Become a Rider
               </button>
             </div>
           </div>
@@ -161,7 +168,7 @@ const Banner = () => {
               </span>
 
               <button className="btn btn-outline rounded-full px-5">
-                Be a Rider
+                Become a Rider
               </button>
             </div>
           </div>
