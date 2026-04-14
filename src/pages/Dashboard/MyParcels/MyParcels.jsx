@@ -104,7 +104,11 @@ const MyParcels = () => {
                     </button>
                   )}
                 </td>
-                <td>{parcel.trackingId}</td>
+                <td>
+                  <Link to={`/parcel-track/${parcel.trackingId}`}>
+                    {parcel.trackingId}
+                  </Link>
+                </td>
                 <td>{parcel.deliveryStatus}</td>
                 <td>
                   <button className="btn btn-primary btn-sm">Edit</button>
